@@ -118,6 +118,11 @@ export default defineType({
                 }),
         }),
         defineField({
+            name: "extraContent",
+            title: "Extra content",
+            type: "localeBlockContent",
+        }),
+        defineField({
             name: "slug",
             title: "Slug",
             type: "slug",
