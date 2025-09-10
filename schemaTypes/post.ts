@@ -81,8 +81,10 @@ export default defineType({
         }),
         defineField({
             name: "mainImage",
-            title: "Main image",
-            type: "imageBlock",
+            title: "Main image(s)",
+            description: "The main image for the post. You can upload multiple images.",
+            type: "array",
+            of: [{ type: "imageBlock" }],
             validation: (Rule) =>
                 Rule.custom((value, context) => {
                     const { parent } = context as { parent: { mainImage?: any; mainVideo?: any; body?: any } };
