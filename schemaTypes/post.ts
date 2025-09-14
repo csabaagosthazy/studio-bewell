@@ -58,6 +58,7 @@ export default defineType({
             name: "section",
             title: "Section",
             type: "reference",
+            description: "The section this post belongs to on the webpage",
             to: [{ type: "section" }],
             validation: (Rule) => Rule.required(),
         }),
@@ -66,7 +67,7 @@ export default defineType({
             title: "Text Position",
             type: "string",
             description: "Where the body text should be shown relative to media.",
-            hidden: ({ document }) => !document?.body,
+            hidden: ({ document }) => !document?.body || (!document?.mainVideo && !document?.mainImage),
             options: {
                 list: [
                     { title: "Above", value: "above" },
